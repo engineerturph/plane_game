@@ -1,4 +1,3 @@
-
 import { GoogleGenAI, Type } from "@google/genai";
 import { MissionInfo } from "../types";
 
@@ -21,7 +20,8 @@ export async function generateMissionBriefing(): Promise<MissionInfo> {
     }
     const response = await safeClient.models.generateContent({
       model: "gemini-3-flash-preview",
-      contents: "Generate a futuristic flight trial mission name, a cool pilot callsign, and a short one-sentence objective about hunting down and neutralizing a single elite enemy pilot in a dense asteroid field.",
+      contents:
+        "Generate a futuristic flight trial mission name, a cool pilot callsign, and a short one-sentence objective about hunting down and neutralizing a single elite enemy pilot in a dense asteroid field.",
       config: {
         responseMimeType: "application/json",
         responseSchema: {
@@ -29,11 +29,11 @@ export async function generateMissionBriefing(): Promise<MissionInfo> {
           properties: {
             name: { type: Type.STRING },
             objective: { type: Type.STRING },
-            pilotCallsign: { type: Type.STRING }
+            pilotCallsign: { type: Type.STRING },
           },
-          required: ["name", "objective", "pilotCallsign"]
-        }
-      }
+          required: ["name", "objective", "pilotCallsign"],
+        },
+      },
     });
 
     // FIX: Add check for response.text and trim before parsing to prevent runtime errors.
@@ -47,8 +47,9 @@ export async function generateMissionBriefing(): Promise<MissionInfo> {
     // Silently fallback on quota errors or other API issues
     return {
       name: "Operation Viper Hunt",
-      objective: "An elite enemy pilot has been detected. Hunt them down and neutralize the threat.",
-      pilotCallsign: "Hunter-1"
+      objective:
+        "An elite enemy pilot has been detected. Hunt them down and neutralize the threat.",
+      pilotCallsign: "Hunter-1",
     };
   }
 }
@@ -69,7 +70,9 @@ export async function generateGameOverTaunt(score: number): Promise<string> {
     }
     return text.trim();
   } catch (error) {
-    return score > 50 ? "Exceptional flying, pilot. The swarm is thinning." : "Simulation terminated. Check your vectors and try again.";
+    return score > 50
+      ? "Exceptional flying, pilot. The swarm is thinning."
+      : "Simulation terminated. Check your vectors and try again.";
   }
 }
 
