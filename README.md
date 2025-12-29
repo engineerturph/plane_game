@@ -18,3 +18,9 @@ View your app in AI Studio: https://ai.studio/apps/drive/1IWlH961ezNY7-1vaQWbtwb
 2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
 3. Run the app:
    `npm run dev`
+
+## Deploy to GitHub Pages
+
+- Push changes to the `main` branch; the GitHub Actions workflow builds the Vite app and publishes it to the `github-pages` environment.
+- First publish may require enabling Pages in repository settings by selecting the `GitHub Actions` source.
+- The site will be available at https://engineerturph.github.io/plane_game once the deployment job completes.
