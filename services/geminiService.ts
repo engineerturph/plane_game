@@ -2,11 +2,24 @@
 import { GoogleGenAI, Type } from "@google/genai";
 import { MissionInfo } from "../types";
 
-const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+const apiKey = process.env.API_KEY ?? process.env.GEMINI_API_KEY;
+const safeClient = (() => {
+  if (!apiKey || apiKey === "undefined" || apiKey === "null") {
+    return null;
+  }
+  try {
+    return new GoogleGenAI({ apiKey });
+  } catch (error) {
+    return null;
+  }
+})();
 
 export async function generateMissionBriefing(): Promise<MissionInfo> {
   try {
-    const response = await ai.models.generateContent({
+    if (!safeClient) {
+      throw new Error("Missing API key");
+    }
+    const response = await safeClient.models.generateContent({
       model: "gemini-3-flash-preview",
       contents: "Generate a futuristic flight trial mission name, a cool pilot callsign, and a short one-sentence objective about hunting down and neutralizing a single elite enemy pilot in a dense asteroid field.",
       config: {
@@ -42,7 +55,10 @@ export async function generateMissionBriefing(): Promise<MissionInfo> {
 
 export async function generateGameOverTaunt(score: number): Promise<string> {
   try {
-    const response = await ai.models.generateContent({
+    if (!safeClient) {
+      throw new Error("Missing API key");
+    }
+    const response = await safeClient.models.generateContent({
       model: "gemini-3-flash-preview",
       contents: `Generate a short pilot debriefing comment for a pilot who scored ${score} points before crashing. Make it professional yet slightly critical if the score is low. Keep it under 15 words.`,
     });
@@ -59,7 +75,10 @@ export async function generateGameOverTaunt(score: number): Promise<string> {
 
 export async function generateWinMessage(score: number): Promise<string> {
   try {
-    const response = await ai.models.generateContent({
+    if (!safeClient) {
+      throw new Error("Missing API key");
+    }
+    const response = await safeClient.models.generateContent({
       model: "gemini-3-flash-preview",
       contents: `Generate a short, celebratory pilot debriefing comment for a pilot who successfully eliminated the primary target and scored ${score} points. Keep it under 15 words.`,
     });
