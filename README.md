@@ -1,5 +1,7 @@
 # Sky Dash
 
+Play it on GitHub Pages: https://engineerturph.github.io/plane_game
+
 I built Sky Dash during Insider AI Weekend (27-28 December) as a three-hour experiment to see how far the AI Studio vibe-coding workflow could be pushed before it started fighting back. Sure enough, once the project crossed a certain scope the automated builder began injecting bugs, so this repository captures the hand-polished version that actually flies.
 
 You pilot a futuristic interceptor through an asteroid field, dodge debris, vaporise hostile meteors, and clear three escalating boss encounters that test different skills: pursuit, sustained DPS, and precision strikes.
