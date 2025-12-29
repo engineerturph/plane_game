@@ -1,44 +1,43 @@
-
 export const WORLD_SIZE = {
   width: 8000,
   height: 2500,
-  depth: 8000
+  depth: 8000,
 };
 
 export const PLAYER_PLANES = [
   {
-    id: 'intercept',
-    name: 'X-15 INTERCEPTOR',
+    id: "intercept",
+    name: "X-15 INTERCEPTOR",
     speed: 2.2,
     nitroSpeed: 6.0,
     turnSpeed: 0.045,
     rollSpeed: 0.08,
     color: 0xcbd5e1, // Slate
-    description: 'Balanced performance for all-round combat.',
-    radius: 65 // Increased radius to match visual model scale
+    description: "Balanced performance for all-round combat.",
+    radius: 65, // Increased radius to match visual model scale
   },
   {
-    id: 'viper',
-    name: 'V-22 VIPER',
+    id: "viper",
+    name: "V-22 VIPER",
     speed: 2.8,
     nitroSpeed: 7.5,
     turnSpeed: 0.035,
     rollSpeed: 0.06,
     color: 0xfacc15, // Yellow
-    description: 'High top speed, lower maneuverability. Built for chasing.',
-    radius: 60
+    description: "High top speed, lower maneuverability. Built for chasing.",
+    radius: 60,
   },
   {
-    id: 'phantom',
-    name: 'F-99 PHANTOM',
+    id: "phantom",
+    name: "F-99 PHANTOM",
     speed: 1.9,
     nitroSpeed: 5.0,
     turnSpeed: 0.065,
     rollSpeed: 0.12,
     color: 0x818cf8, // Indigo
-    description: 'Superior agility for tight dodging. Slower engines.',
-    radius: 62
-  }
+    description: "Superior agility for tight dodging. Slower engines.",
+    radius: 62,
+  },
 ];
 
 // Fallback if needed, though we primarily use the array above now
@@ -58,10 +57,10 @@ export const RIVAL_PLANE_STATS = {
 
 export const BOSS_STATS = {
   deathStar: {
-    hp: 500, 
+    hp: 500,
     radius: 240, // 2x Bigger (was 120)
     score: 2000,
-    color: 0x94a3b8
+    color: 0x94a3b8,
   },
   planet: {
     hp: 200, // HP of the Mansion
@@ -69,8 +68,8 @@ export const BOSS_STATS = {
     mansionRadius: 60,
     score: 5000,
     turretCooldown: 25, // Faster fire rate (was 40)
-    turretSpeed: 6.0 // Faster bullets (was 3.5)
-  }
+    turretSpeed: 6.0, // Faster bullets (was 3.5)
+  },
 };
 
 export const AI_PLANE_STATS = {
@@ -78,7 +77,7 @@ export const AI_PLANE_STATS = {
   speed: 1.8,
   radius: 12,
   color: 0xff4444, // Red
-  score: 5
+  score: 5,
 };
 
 export const GATE_STATS = {
@@ -86,7 +85,7 @@ export const GATE_STATS = {
   thickness: 2,
   color: 0xfacc15, // Golden yellow
   passedColor: 0x22c55e, // Success green
-  spawnCount: 35
+  spawnCount: 35,
 };
 
 export const BULLET_STATS = {
@@ -94,10 +93,10 @@ export const BULLET_STATS = {
   radius: 1.0,
   cooldown: 400, // Slower fire rate (milliseconds)
   life: 100,
-  color: 0x38bdf8 // Cyan bullets
+  color: 0x38bdf8, // Cyan bullets
 };
 
-export const OBSTACLE_COUNT = 1500;
+export const OBSTACLE_COUNT = 300;
 export const RED_ASTEROID_SCORE = 25;
 export const EXPLOSION_PARTICLES = 60;
 
